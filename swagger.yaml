@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: Vulnerable Microservice API
+  description: Microservicio básico con endpoints expuestos para pruebas.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/hello:
+    get:
+      summary: Saludo simple
+      description: Devuelve un saludo con el nombre proporcionado por query param.
+      parameters:
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+          description: Nombre para saludar
+      responses:
+        '200':
+          description: Saludo exitoso
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Hello Carlos"
+  /api/echo:
+    post:
+      summary: Eco de datos
+      description: Devuelve el cuerpo del mensaje enviado.
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              example: "Hola mundo"
+      responses:
+        '200':
+          description: Respuesta con el contenido recibido
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Received: Hola mundo"
