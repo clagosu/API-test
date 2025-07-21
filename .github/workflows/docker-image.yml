@@ -23,6 +23,8 @@ jobs:
     - name: Build
       run: |
         gradle build
+        ls -R
+        
     - name: Docker Login
       uses: docker/login-action@v3.4.0
       with:
