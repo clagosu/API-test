@@ -25,4 +25,4 @@ jobs:
         gradle build
         
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag VAPI:latest
+      run: docker build . --file Dockerfile --tag clagosu/vapi:latest
